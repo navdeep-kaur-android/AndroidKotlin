@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import com.managestudents.R
 import com.managestudents.presenter.AddStudentPresenter
 import com.managestudents.presenter.AddStudentPresenterImpl
-import com.managestudents.utility.Utilities
-import com.managestudents.view.AddStudentView
+import com.managestudents.utilities.Utilities
+import com.managestudents.views.AddStudentView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.fragment_add_student.view.*
 

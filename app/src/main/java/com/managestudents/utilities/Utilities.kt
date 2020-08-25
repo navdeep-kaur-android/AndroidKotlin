@@ -1,4 +1,4 @@
-package com.managestudents.utility
+package com.managestudents.utilities
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -10,7 +10,7 @@ class Utilities {
     companion object {
         @SuppressLint("ShowToast")
         fun showToast(activity: AppCompatActivity, message:String){
-           Toast.makeText(activity,message,Toast.LENGTH_SHORT);
+           Toast.makeText(activity,message,Toast.LENGTH_SHORT).show()
        }
     }
 
