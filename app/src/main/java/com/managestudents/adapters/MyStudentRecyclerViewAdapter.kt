@@ -1,36 +1,39 @@
 package com.managestudents.adapters
 
+import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.managestudents.R
-import com.managestudents.viewmodels.Student
+import com.managestudents.data.Student
 
 /**
  * Adapter class set for showing the list of students
  * Navdeep Kaur
  */
-class MyStudentRecyclerViewAdapter(
-    private val values: List<Student>
-) : RecyclerView.Adapter<MyStudentRecyclerViewAdapter.ViewHolder>() {
+class MyStudentRecyclerViewAdapter() : RecyclerView.Adapter<MyStudentRecyclerViewAdapter.StudentViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_student, parent, false)
-        return ViewHolder(view)
+    private var students = emptyList<Student>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_student, parent, false)
+        return StudentViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+    override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
+        val item = students[position]
+        holder.idView.text = item.name
+        holder.contentView.text = item.course
     }
 
-    override fun getItemCount(): Int = values.size
+    internal fun setStudents(students: List<Student>) {
+        this.students = students
+        notifyDataSetChanged()
+    }
+    override fun getItemCount(): Int = students.size
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.item_number)
         val contentView: TextView = view.findViewById(R.id.content)
 

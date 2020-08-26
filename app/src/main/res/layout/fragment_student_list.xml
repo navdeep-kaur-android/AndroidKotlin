@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".ui.StudentListFragment"
         tools:listitem="@layout/fragment_student" />
@@ -22,7 +21,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorAccent"
         android:contentDescription="@string/add_student"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/float_action_button_margin"
         android:layout_marginEnd="@dimen/float_action_button_margin"
