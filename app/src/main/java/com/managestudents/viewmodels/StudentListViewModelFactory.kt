@@ -1,4 +1,4 @@
 package com.managestudents.viewmodels
 
-class AddStudentViewModelFactory {
+class StudentListViewModelFactory {
 }

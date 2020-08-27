@@ -12,13 +12,13 @@ import androidx.navigation.Navigation
 import com.managestudents.R
 import com.managestudents.adapters.MyStudentRecyclerViewAdapter
 import com.managestudents.databinding.FragmentStudentListBinding
-import com.managestudents.viewmodels.AddStudentViewModel
+import com.managestudents.viewmodels.StudentListViewModel
 
 /**
  * A fragment representing a list of Items.
  */
 class StudentListFragment : Fragment() {
-    private lateinit var studentViewModel: AddStudentViewModel
+    private lateinit var studentListViewModel: StudentListViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +28,7 @@ class StudentListFragment : Fragment() {
         context ?: return binding.root
         val adapter = MyStudentRecyclerViewAdapter()
         binding.studentList.adapter = adapter
-        studentViewModel = ViewModelProvider(this).get(AddStudentViewModel::class.java)
+        studentListViewModel = ViewModelProvider(this).get(StudentListViewModel::class.java)
         subscribeUi(adapter)
        binding.fab.setOnClickListener (
            Navigation.createNavigateOnClickListener(R.id.action_show_add_student)
@@ -36,7 +36,7 @@ class StudentListFragment : Fragment() {
         return binding.root
     }
     private fun subscribeUi(adapter: MyStudentRecyclerViewAdapter) {
-        studentViewModel.students.observe(this.activity as AppCompatActivity, Observer { students ->
+        studentListViewModel.students.observe(this.activity as AppCompatActivity, Observer { students ->
             // Update the cached copy of the words in the adapter.
             students?.let { adapter.setStudents(it) }
         })

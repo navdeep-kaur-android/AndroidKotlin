@@ -34,8 +34,8 @@ class MyStudentRecyclerViewAdapter() : RecyclerView.Adapter<MyStudentRecyclerVie
     override fun getItemCount(): Int = students.size
 
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val idView: TextView = view.findViewById(R.id.item_number)
-        val contentView: TextView = view.findViewById(R.id.content)
+        val idView: TextView = view.findViewById(R.id.item_name)
+        val contentView: TextView = view.findViewById(R.id.item_course)
 
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"

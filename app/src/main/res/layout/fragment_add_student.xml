@@ -3,18 +3,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_marginTop="@dimen/fragment_horizontal_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/title_text_size"
-        android:text="@string/add_student" />
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_first_name"
         android:layout_width="match_parent"
@@ -29,7 +17,7 @@
         android:background="@drawable/edit_text_background"
         android:drawablePadding="@dimen/inside_padding"
         android:drawableStart="@drawable/ic_student"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_course_name"
@@ -80,6 +68,38 @@
         android:drawablePadding="@dimen/inside_padding"
         android:drawableStart="@drawable/ic_email"
         />
+    <ListView
+        android:id="@+id/assignmentListView"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_margin="@dimen/edit_text_margin"
+        app:layout_constraintTop_toBottomOf="@+id/addAssignmentButton"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/addAssignmentButton"
+        app:layout_constraintTop_toBottomOf="@+id/et_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/inside_padding"
+        android:layout_marginTop="@dimen/edit_text_margin"
+        android:layout_marginStart="@dimen/edit_text_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAlignment="viewStart"
+        android:text="@string/add_student"
+        android:textColor="@android:color/black"
+        android:background="@drawable/ic_add_assignment"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:text="@string/add_assignment"
+        app:layout_constraintTop_toBottomOf="@+id/et_email"
+        android:layout_marginTop="@dimen/edit_text_margin"
+        android:padding="@dimen/inside_padding"
+        app:layout_constraintStart_toEndOf="@+id/addAssignmentButton"
+        android:layout_height="wrap_content"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
@@ -93,6 +113,7 @@
         android:textSize="@dimen/title_text_size"
         android:text="@string/submit"
         android:background="@drawable/button_background"
-        app:layout_constraintTop_toBottomOf="@+id/et_email"/>
+        app:layout_constraintTop_toBottomOf="@+id/assignmentListView"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
